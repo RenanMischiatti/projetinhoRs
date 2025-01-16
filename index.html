@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>❤️</title>
+
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+        <!-- Font Montserrat -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Quer namorar comigo?</h1>
+            <p>Sou muito apaixonado por você</p>
+            <video src="public/gif.mp4" width="250" loop autoplay muted></video>
+
+            <div class="d-flex justify-content-evenly">
+                <button class="btn mt-3" id="sim" onclick="functionClick(true)">Sim</button>
+                <button class="btn mt-3" id="nao" onmouseover="changedButton()" onclick="functionClick(false)">Não</button>
+            </div>
+            <div class="response hidden" id="response"></div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        <script>
+            function functionClick(response) {
+                if (response) {
+                    const responseDiv = document.getElementById('response');
+                    responseDiv.textContent = "❤️ obaaaaaaaaaaaaaaa 😍";
+                    responseDiv.style.color = "#4caf50";
+                    responseDiv.classList.remove('hidden');
+                    document.querySelector('.btn').disabled = true;
+                    document.querySelector('.btn').textContent = "Te amoooooooooooooo!";
+
+                    const Naobutton = document.getElementById('nao');
+                    Naobutton.style.display = "none";
+
+                    return;
+                }
+
+                changedButton();  
+            }
+
+            function changedButton() {
+                const button = document.getElementById('nao');
+                
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+
+                
+                const randomX = Math.floor(Math.random() * (windowWidth - button.offsetWidth)); 
+                const randomY = Math.floor(Math.random() * (windowHeight - button.offsetHeight)); 
+
+                button.style.position = "absolute";
+                button.style.top = `${randomY}px`;   
+                button.style.left = `${randomX}px`;  
+            }
+
+
+
+
+        </script>
+    </body>
+</html>
